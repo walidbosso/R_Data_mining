@@ -1,0 +1,248 @@
+﻿
+> df <- Zoo[, -17]
+> df <- as.data.frame(lapply(df, function(x) {
++     if (is.factor(x)) {
++         x <- as.character(x)
++         x <- ifelse(x == "TRUE", 1, ifelse(x == "FALSE", 0, x))
++         x <- as.numeric(x)
++     }
++     return(x)
++ }))
+> df
+   hair feathers eggs milk airborne aquatic predator toothed backbone breathes venomous fins legs tail
+1     1        0    0    1        0       0        1       1        1        1        0    0    4    0
+2     1        0    0    1        0       0        0       1        1        1        0    0    4    1
+3     0        0    1    0        0       1        1       1        1        0        0    1    0    1
+4     1        0    0    1        0       0        1       1        1        1        0    0    4    0
+5     1        0    0    1        0       0        1       1        1        1        0    0    4    1
+6     1        0    0    1        0       0        0       1        1        1        0    0    4    1
+7     1        0    0    1        0       0        0       1        1        1        0    0    4    1
+8     0        0    1    0        0       1        0       1        1        0        0    1    0    1
+9     0        0    1    0        0       1        1       1        1        0        0    1    0    1
+10    1        0    0    1        0       0        0       1        1        1        0    0    4    0
+11    1        0    0    1        0       0        1       1        1        1        0    0    4    1
+12    0        1    1    0        1       0        0       0        1        1        0    0    2    1
+13    0        0    1    0        0       1        1       1        1        0        0    1    0    1
+14    0        0    1    0        0       0        1       0        0        0        0    0    0    0
+15    0        0    1    0        0       1        1       0        0        0        0    0    4    0
+16    0        0    1    0        0       1        1       0        0        0        0    0    6    0
+17    0        1    1    0        1       0        1       0        1        1        0    0    2    1
+18    1        0    0    1        0       0        0       1        1        1        0    0    4    1
+19    0        0    1    0        0       1        1       1        1        0        0    1    0    1
+20    0        0    0    1        0       1        1       1        1        1        0    1    0    1
+21    0        1    1    0        1       0        0       0        1        1        0    0    2    1
+22    0        1    1    0        1       1        0       0        1        1        0    0    2    1
+23    1        0    0    1        0       0        0       1        1        1        0    0    4    1
+24    0        1    1    0        1       0        0       0        1        1        0    0    2    1
+25    0        0    1    0        0       0        0       0        0        1        0    0    6    0
+26    0        0    1    0        0       1        1       1        1        1        0    0    4    0
+27    0        0    1    0        0       1        1       1        1        1        1    0    4    0
+28    1        0    0    1        1       0        0       1        1        1        0    0    2    1
+29    1        0    0    1        0       0        0       1        1        1        0    0    4    1
+30    1        0    0    1        0       0        1       1        1        1        0    0    2    0
+31    0        0    1    0        1       0        0       0        0        1        0    0    6    0
+32    1        0    0    1        0       0        0       1        1        1        0    0    4    1
+33    1        0    0    1        0       0        0       1        1        1        0    0    2    0
+34    0        1    1    0        1       1        1       0        1        1        0    0    2    1
+35    0        0    1    0        0       1        0       1        1        0        0    1    0    1
+36    1        0    0    1        0       0        0       1        1        1        0    0    4    1
+37    1        0    0    1        0       0        0       1        1        1        0    0    4    1
+38    0        1    1    0        1       0        1       0        1        1        0    0    2    1
+39    0        0    1    0        0       1        1       1        1        0        0    1    0    1
+40    1        0    1    0        1       0        0       0        0        1        1    0    6    0
+41    1        0    1    0        1       0        0       0        0        1        0    0    6    0
+42    0        1    1    0        0       0        1       0        1        1        0    0    2    1
+43    0        0    1    0        1       0        1       0        0        1        0    0    6    0
+44    0        1    1    0        1       0        0       0        1        1        0    0    2    1
+45    1        0    0    1        0       0        1       1        1        1        0    0    4    1
+46    1        0    0    1        0       0        1       1        1        1        0    0    4    1
+47    0        0    1    0        0       1        1       0        0        0        0    0    6    0
+48    1        0    0    1        0       0        1       1        1        1        0    0    4    1
+49    1        0    0    1        0       1        1       1        1        1        0    0    4    1
+50    1        0    0    1        0       0        1       1        1        1        0    0    4    1
+51    1        0    0    1        0       0        1       1        1        1        0    0    4    1
+52    1        0    1    0        1       0        0       0        0        1        0    0    6    0
+53    0        0    1    0        0       1        1       1        1        1        0    0    4    1
+54    0        0    1    0        0       1        1       0        0        0        0    0    8    0
+55    1        0    0    1        0       0        1       1        1        1        0    0    4    1
+56    1        0    0    1        0       0        0       1        1        1        0    0    4    1
+57    0        1    1    0        0       0        0       0        1        1        0    0    2    1
+58    0        1    1    0        1       0        0       0        1        1        0    0    2    1
+59    0        1    1    0        0       1        1       0        1        1        0    0    2    1
+60    0        1    1    0        1       0        0       0        1        1        0    0    2    1
+61    0        0    1    0        0       1        1       1        1        0        0    1    0    1
+62    0        0    1    0        0       1        1       1        1        0        0    1    0    1
+   domestic catsize
+1         0       1
+2         0       1
+3         0       0
+4         0       1
+5         0       1
+6         0       1
+7         1       1
+8         1       0
+9         0       0
+10        1       0
+11        0       1
+12        1       0
+13        0       0
+14        0       0
+15        0       0
+16        0       0
+17        0       0
+18        0       1
+19        0       1
+20        0       1
+21        1       0
+22        0       0
+23        0       1
+24        0       1
+25        0       0
+26        0       0
+27        0       0
+28        0       0
+29        0       1
+30        1       1
+31        0       0
+32        1       1
+33        0       1
+34        0       0
+35        0       0
+36        1       0
+37        0       0
+38        0       0
+39        0       0
+40        1       0
+41        0       0
+42        0       0
+43        0       0
+44        0       0
+45        0       1
+46        0       1
+47        0       0
+48        0       1
+49        0       1
+50        0       0
+51        0       1
+52        0       0
+53        0       0
+54        0       1
+55        0       0
+56        0       1
+57        0       1
+58        1       0
+59        0       1
+60        0       0
+61        0       1
+62        0       0
+ [ reached 'max' / getOption("max.print") -- omitted 39 rows ]
+> res.km <- kmeans(scale(df), 7, nstart = 25)
+> res.km
+K-means clustering with 7 clusters of sizes 4, 37, 9, 9, 21, 13, 8
+
+Cluster means:
+         hair  feathers       eggs       milk   airborne    aquatic   predator    toothed   backbone
+1  0.14943501 -0.494438 -1.1793445  1.2037132 -0.5555198  1.3370410  0.8919727  0.8057576  0.4633792
+2  1.15563073 -0.494438 -1.1247802  1.2037132 -0.4291516 -0.6282147 -0.1360727  0.7507701  0.4633792
+3  0.03763548 -0.494438  0.6152136 -0.8225373  1.0030219 -0.7405150 -0.6651253 -1.2287803 -2.1366929
+4 -0.85676071 -0.494438  0.8395333 -0.8225373 -0.5555198  0.6445224  0.4470875 -1.2287803 -2.1366929
+5 -0.85676071  1.883573  0.8395333 -0.8225373  1.2256708 -0.1469276 -0.2520177 -1.2287803  0.4633792
+6 -0.85676071 -0.494438  0.8395333 -0.8225373 -0.5555198  1.3370410  0.2759779  0.8057576  0.4633792
+7 -0.85676071 -0.494438  0.5871736 -0.8225373 -0.5555198  0.5579575  0.6417248  0.8057576  0.4633792
+    breathes     venomous       fins       legs        tail    domestic    catsize
+1  0.5098049 -0.291838667  2.2118440 -1.1515697  0.01689987 -0.38244559  1.1325318
+2  0.5098049 -0.291838667 -0.4476351  0.4101986  0.27831492  0.25999939  0.6443993
+3  0.5098049  0.936315722 -0.4476351  1.6625669 -1.43711456 -0.05230025 -0.8742351
+4 -1.3972429  0.117546130 -0.4476351  0.1871943 -1.68998664 -0.38244559 -0.6512610
+5  0.5098049 -0.291838667 -0.4476351 -0.3670462  0.58586203  0.04202699 -0.2053128
+6 -1.9421137 -0.008418423  2.2118440 -1.3974651  0.58586203 -0.15388343 -0.2567683
+7  0.2033150  1.089835020 -0.4476351 -0.1679880 -0.26758122 -0.38244559 -0.8742351
+
+Clustering vector:
+  [1] 2 2 6 2 2 2 2 6 6 2 2 5 6 4 4 4 5 2 6 1 5 5 2 5 3 7 7 2 2 2 3 2 2 5 6 2 2 5 6 3 3 5 3 5 2 2 4 2 2 2
+ [51] 2 3 7 4 2 2 5 5 5 5 6 6 7 2 2 2 1 2 2 2 2 5 3 6 1 1 7 4 5 5 7 4 6 5 2 4 6 5 3 7 5 7 6 2 2 5 2 3 2 4
+[101] 5
+
+Within cluster sum of squares by cluster:
+[1]   8.659909 173.592410  70.249848  60.074060 108.285404  42.931467  62.847609
+ (between_SS / total_SS =  67.1 %)
+
+Available components:
+
+[1] "cluster"      "centers"      "totss"        "withinss"     "tot.withinss" "betweenss"   
+[7] "size"         "iter"         "ifault"      
+> res.km$cluster
+res.km$cluster
+  [1] 2 2 6 2 2 2 2 6 6 2 2 5 6 4 4 4 5 2 6 1 5 5 2 5 3 7 7 2 2 2 3 2 2 5 6 2 2 5 6 3 3 5 3 5 2 2 4 2
+ [49] 2 2 2 3 7 4 2 2 5 5 5 5 6 6 7 2 2 2 1 2 2 2 2 5 3 6 1 1 7 4 5 5 7 4 6 5 2 4 6 5 3 7 5 7 6 2 2 5
+ [97] 2 3 2 4 5
+> res.km$totss
+[1] 1600
+> fviz_cluster(res.km, data = df,
++              palette = c("#2E9FDF", "#00AFBB", "#E7B800", "#800", "#aaB800", "#29a200", "#999990"), 
++              geom = "point",
++              ellipse.type = "convex", 
++              ggtheme = theme_bw()
++ ) 
+Error in fviz_cluster(res.km, data = df, palette = c("#2E9FDF", "#00AFBB",  : 
+  could not find function "fviz_cluster"
+> library(factoextra)
+Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa
+> fviz_cluster(res.km, data = df,
++              palette = c("#2E9FDF", "#00AFBB", "#E7B800", "#800", "#aaB800", "#29a200", "#999990"), 
++              geom = "point",
++              ellipse.type = "convex", 
++              ggtheme = theme_bw()
++ ) 
+Error:
+! Problem while converting geom to grob.
+i Error occurred in the 1st layer.
+Caused by error:
+! Malformed colour string `#800`. Must contain either 6 or 8 hex values
+Run `rlang::last_trace()` to see where the error occurred.
+> fviz_cluster(res.km, data = df,
++              palette = c("#2E9FDF", "#00AFBB", "#E7B800", "#800000", "#111111", "#29a200", "#999990"), 
++              geom = "point",
++              ellipse.type = "convex", 
++              ggtheme = theme_bw()
++ ) 
+
+> install.packages("cluster")
+Installation du package dans ‘C:/Users/packardbell/AppData/Local/R/win-library/4.3’
+(car ‘lib’ n'est pas spécifié)
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.3/cluster_2.1.4.zip'
+Content type 'application/zip' length 586206 bytes (572 KB)
+downloaded 572 KB
+
+le package ‘cluster’ a été décompressé et les sommes MD5 ont été vérifiées avec succés
+
+Les packages binaires téléchargés sont dans
+	C:\Users\packardbell\AppData\Local\Temp\RtmpWA5ea4\downloaded_packages
+> library(cluster)
+> silhouette_score <- function(k){
++     km <- kmeans(df, centers = k, nstart=25)
++     ss <- silhouette(km$cluster, dist(df))
++     mean(ss[, 3])
++ }
+> k <- 2:10
+> avg_sil <- sapply(k, silhouette_score)
+> plot(k, type='b', avg_sil, xlab='Number of clusters', ylab='Average Silhouette Scores', frame=FALSE)
+_______________________________________________________________
+Clustering
+1-Dans cette partie appliquer une Classification Ascendante Hiérarchique puis 
+coupez l’arbre obtenu pour obtenir 7 clusters 
+______________________________________________
+> d <- dist(df)
+> hc <- hclust(d, method = "complete")
+> plot(hc)
+> plot(hc)
+> plot(hc)
+> fviz_dend(hc, k = 7)
+Warning message:
+The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as of ggplot2
+3.3.4.
+i The deprecated feature was likely used in the factoextra package.
+  Please report the issue at <https://github.com/kassambara/factoextra/issues>.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated. 
+> fviz_dend(hc, k = 7)

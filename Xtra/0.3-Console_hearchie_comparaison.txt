@@ -1,0 +1,141 @@
+﻿Clustering
+1-Dans cette partie appliquer une Classification Ascendante Hiérarchique puis 
+coupez l’arbre obtenu pour obtenir 7 clusters 
+______________________________________________
+> d <- dist(df)
+> hc <- hclust(d, method = "complete")
+> plot(hc)
+> plot(hc)
+> plot(hc)
+> fviz_dend(hc, k = 7)
+Warning message:
+The `<scale>` argument of `guides()` cannot be `FALSE`. Use "none" instead as of ggplot2
+3.3.4.
+i The deprecated feature was likely used in the factoextra package.
+  Please report the issue at <https://github.com/kassambara/factoextra/issues>.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated. 
+> fviz_dend(hc, k = 7)
+
+____________________________________________
+2-Comparer
+____________________________
+install.packages("fpc")
+library(fpc)
+fpc::cluster.stats(d, res.km$cluster)
+$n
+[1] 101
+
+$cluster.number
+[1] 7
+
+$cluster.size
+[1]  4 37  9  9 21 13  8
+
+$min.cluster.size
+[1] 4
+
+$noisen
+[1] 0
+
+$diameter
+[1] 2.236068 3.162278 3.162278 8.246211 3.000000 2.000000 4.582576
+
+$average.distance
+[1] 1.5894385 1.5193469 1.6793519 4.0776876 1.4655752 0.9649021 2.9507364
+
+$median.distance
+[1] 1.825141 1.414214 1.414214 4.241002 1.414214 1.000000 4.061553
+
+$separation
+[1] 1.732051 1.732051 1.732051 1.732051 1.732051 1.732051 1.732051
+
+$average.toother
+[1] 3.870101 3.786666 4.703098 4.237400 3.500565 4.340392 3.458107
+
+$separation.matrix
+         [,1]     [,2]     [,3]     [,4]     [,5]     [,6]     [,7]
+[1,] 0.000000 1.732051 5.099020 3.000000 2.449490 1.732051 2.236068
+[2,] 1.732051 0.000000 3.162278 2.449490 2.000000 3.162278 1.732051
+[3,] 5.099020 3.162278 0.000000 1.732051 2.645751 6.480741 2.645751
+[4,] 3.000000 2.449490 1.732051 0.000000 2.449490 2.236068 1.732051
+[5,] 2.449490 2.000000 2.645751 2.449490 0.000000 2.828427 1.732051
+[6,] 1.732051 3.162278 6.480741 2.236068 2.828427 0.000000 1.732051
+[7,] 2.236068 1.732051 2.645751 1.732051 1.732051 1.732051 0.000000
+
+$ave.between.matrix
+         [,1]     [,2]     [,3]     [,4]     [,5]     [,6]     [,7]
+[1,] 0.000000 3.799541 6.562853 4.790462 3.444432 2.387832 3.657752
+[2,] 3.799541 0.000000 3.834364 4.256587 3.246546 4.622005 3.258298
+[3,] 6.562853 3.834364 0.000000 4.314993 4.750052 6.880589 4.566058
+[4,] 4.790462 4.256587 4.314993 0.000000 3.964612 4.577918 3.947564
+[5,] 3.444432 3.246546 4.750052 3.964612 0.000000 3.335247 3.044393
+[6,] 2.387832 4.622005 6.880589 4.577918 3.335247 0.000000 3.527777
+[7,] 3.657752 3.258298 4.566058 3.947564 3.044393 3.527777 0.000000
+
+$average.between
+[1] 3.921096
+
+$average.within
+[1] 1.795185
+
+$n.between
+[1] 3990
+
+$n.within
+[1] 1060
+
+$max.diameter
+[1] 8.246211
+
+$min.separation
+[1] 1.732051
+
+$within.cluster.ss
+[1] 232.5536
+
+$clus.avg.silwidths
+         1          2          3          4          5          6          7 
+ 0.3088825  0.5035888  0.5689127 -0.3621989  0.5064998  0.5956698 -0.1717355 
+
+$avg.silwidth
+[1] 0.3835154
+
+$g2
+NULL
+
+$g3
+NULL
+
+$pearsongamma
+[1] 0.6303317
+
+$dunn
+[1] 0.210042
+
+$dunn2
+[1] 0.5855848
+
+$entropy
+[1] 1.717952
+
+$wb.ratio
+[1] 0.4578272
+
+$ch
+[1] 31.62965
+
+$cwidegap
+[1] 2.236068 2.000000 2.828427 4.123106 2.236068 1.000000 4.000000
+
+$widestgap
+[1] 4.123106
+
+$sindex
+[1] 1.732051
+
+$corrected.rand
+NULL
+
+$vi
+NULL
