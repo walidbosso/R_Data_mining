@@ -5,3 +5,8 @@ This project aims to understand the knowledge extraction methods. To do this, we
 - Hierarchical agglomerative clustering (HAC)
 - K-means
 - And decision trees.
+<br/>
+
+----------------------
+> >  <br/> &copy; *by Walid BOUSSOU*   🇲🇦 😄 <br/>  
+----------------------
